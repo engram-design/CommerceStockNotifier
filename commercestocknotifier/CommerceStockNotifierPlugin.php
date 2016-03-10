@@ -203,7 +203,15 @@ class CommerceStockNotifierPlugin extends BasePlugin
 			return;
 		}
 
-		$to = str_replace(';', ',', $this->getSettings()->toEmail);
+		// make to emails into array
+		$notify = explode(',',str_replace(';', ',', $this->getSettings()->toEmail));
+		$to = $notify[0];
+		unset($notify[0]);
+		$ccEmails = [];
+		foreach ($notify as $email)
+		{
+			$ccEmails[] = ['email' => $email];
+		}
 
 		$body = "Hi, this is a notification that the following items stock has fallen below the threshold set to ".$this->getSettings()->threshold.":<br><br>";
 
@@ -221,6 +229,7 @@ class CommerceStockNotifierPlugin extends BasePlugin
 		$email = new EmailModel();
 		$email->toEmail = $to;
 		$email->body = $email->htmlBody = $body;
+		$email->cc = $ccEmails;
 		$email->subject = count($variants)." commerce products have dropped below the stock threshold.";
 
 		if (!craft()->email->sendEmail($email))
