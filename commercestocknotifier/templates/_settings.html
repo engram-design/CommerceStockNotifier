@@ -1,0 +1,23 @@
+{% import "_includes/forms" as forms %}
+
+
+{{ forms.textField({
+	first:        true,
+	label:        "Notify Email"|t,
+	required:     true,
+	id:           'toEmail',
+	name:         'toEmail',
+	instructions: "The email address(es) that should be notified when the stock gets below the threshold. Separate multiple emails with commas."|t,
+	value:        settings.toEmail,
+	autofocus:    true,
+	errors:       settings.getErrors('toEmail')
+}) }}
+
+{{ forms.textField({
+	label:        "Low Stock Threshold"|t,
+	id:           'threshold',
+	name:         'threshold',
+	instructions: "The stock amount that should trigger a notification."|t,
+	value:        (settings.threshold ? settings.threshold : ""),
+	errors:       settings.getErrors('threshold')
+}) }}
