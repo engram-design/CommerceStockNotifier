@@ -1,4 +1,4 @@
-# Commerce Stock Notifier plugin for Craft
+# Stock Notifier plugin for Craft Commerce
 
 This plugin allows you notify users by email if an item’s stock has dropped below a defined threshold.
 
