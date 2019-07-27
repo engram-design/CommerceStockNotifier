@@ -2,21 +2,34 @@
 
 This plugin allows you notify users by email if an item’s stock has dropped below a defined threshold.
 
+## Requirements
+
+This plugin requires Craft CMS 3.0.23 or later, and Commerce 2.0.0 or later.
+
 ## Installation
 
-To install Commerce Stock Notifier, follow these steps:
+You can install this plugin from the Plugin Store or with Composer.
 
-1.  Upload the commercestocknotifier/ folder to your craft/plugins/ folder.
-2.  Go to Settings > Plugins from your Craft control panel and enable the Commerce Stock Notifier plugin.
-3.  Go to Settings and click on the “Commerce Stock Notifier” icon to go to the plugin’s settings page, and configure the plugin how you’d like.
+#### From the Plugin Store
+
+Go to the Plugin Store in your project’s Control Panel and search for “Commerce Stock Notifier”. Then click on the “Install” button in its modal window.
+
+#### With Composer
+
+Open your terminal and run the following commands:
+
+```bash
+# go to the project directory
+cd /path/to/my-project.test
+
+# tell Composer to load the plugin
+composer require pixelandtonic/commerce-stock-notifier
+
+# tell Craft to install the plugin
+./craft install/plugin commerce-stock-notifier
+```
 
 ## Settings
 
 - ​*Low Stock Threshold*​ – ​_The stock amount that should trigger a notification._​
 - ​*Notify Email*​ — ​_The email address(es) that should be notified when the stock gets below the threshold. Separate multiple emails with commas._​
-
-## Changelog
-
-### 1.0.0
-
-* Initial release

@@ -1,0 +1,39 @@
+{
+    "name": "pixelandtonic/commerce-stock-notifier",
+    "description": "Notify people when the stock of a Craft Commerce product is below a certain threshold.",
+    "version": "2.0.0",
+    "type": "craft-plugin",
+    "keywords": [
+        "cms",
+        "craftcms",
+        "craft commerce"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pixel & Tonic",
+            "homepage": "https://pixelandtonic.com/"
+        }
+    ],
+    "support": {
+        "email": "support@craftcms.com",
+        "issues": "https://github.com/pixelandtonic/CommerceStockNotifier/issues?state=open",
+        "source": "https://github.com/pixelandtonic/CommerceStockNotifier",
+        "docs": "https://github.com/pixelandtonic/CommerceStockNotifier/blob/master/README.md",
+        "rss": "https://github.com/pixelandtonic/CommerceStockNotifier/commits/v2.atom"
+    },
+    "require": {
+        "craftcms/cms": "^3.0.23",
+        "craftcms/commerce": "^2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "pixelandtonic\\commercestocknotifier\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Commerce Stock Notifier",
+        "handle": "commerce-stock-notifier",
+        "documentationUrl": "https://github.com/pixelandtonic/CommerceStockNotifier/blob/master/README.md"
+    }
+}
