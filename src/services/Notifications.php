@@ -26,7 +26,7 @@ class Notifications extends Component
     {
         $order = $event->sender;
 
-        $threshold = Plugin::getSettings()->threshold;
+        $threshold = Plugin::getInstance()->getSettings()->threshold;
 
         // Loop through each of the line items and record the original variant stocks,
         // for any variants that are currently above our notification threshold
@@ -50,7 +50,7 @@ class Notifications extends Component
         $order = $event->sender;
 
         $this->lowStockVariants = [];
-        $threshold = Plugin::getSettings()->threshold;
+        $threshold = Plugin::getInstance()->getSettings()->threshold;
 
         foreach ($order->getLineItems() as $lineItem) {
             $variant = $lineItem->getPurchasable();
@@ -80,12 +80,12 @@ class Notifications extends Component
     {
         $variants = $this->lowStockVariants;
 
-        if (empty(Plugin::getSettings()->toEmail)) {
+        if (empty(Plugin::getInstance()->getSettings()->toEmail)) {
             return;
         }
 
         // make to emails into array
-        $notify = explode(',', str_replace(';', ',', Plugin::getSettings()->toEmail));
+        $notify = explode(',', str_replace(';', ',', Plugin::getInstance()->getSettings()->toEmail));
         $to = $notify[0];
         unset($notify[0]);
         $ccEmails = [];
@@ -94,7 +94,7 @@ class Notifications extends Component
             $ccEmails[] = ['email' => $email];
         }
 
-        $body = "Hi, this is a notification that the following items stock has fallen below the threshold set to " . Plugin::getSettings()->threshold . ":<br><br>";
+        $body = "Hi, this is a notification that the following items stock has fallen below the threshold set to " . Plugin::getInstance()->getSettings()->threshold . ":<br><br>";
 
         foreach ($variants as $variant) {
             $body .= "SKU: " . $variant->sku . "<br>";
